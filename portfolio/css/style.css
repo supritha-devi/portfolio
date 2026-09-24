@@ -1,0 +1,954 @@
+/* =========================================================
+   SUPRITHADEVI M - PROFESSIONAL PORTFOLIO
+   Royal Navy Blue Professional Theme
+   ========================================================= */
+
+
+/* =========================================================
+   1. CSS VARIABLES
+   ========================================================= */
+
+:root {
+    --navy: #0b1f3a;
+    --navy-dark: #07152a;
+    --navy-light: #16365f;
+
+    --blue: #1d4f91;
+    --blue-light: #2d6bb3;
+
+    --white: #ffffff;
+    --off-white: #f7f9fc;
+
+    --text-dark: #172033;
+    --text-medium: #4b5870;
+    --text-light: #6b778c;
+
+    --border: #d9e0ea;
+    --border-light: #e9edf3;
+
+    --shadow-small:
+        0 4px 12px rgba(11, 31, 58, 0.08);
+
+    --shadow-medium:
+        0 10px 30px rgba(11, 31, 58, 0.12);
+
+    --shadow-large:
+        0 18px 45px rgba(11, 31, 58, 0.16);
+
+    --radius-small: 6px;
+    --radius-medium: 10px;
+    --radius-large: 14px;
+
+    --container-width: 1120px;
+}
+
+
+/* =========================================================
+   2. BASIC RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    background-color: var(--off-white);
+    color: var(--text-dark);
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* =========================================================
+   3. GENERAL ELEMENTS
+   ========================================================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--blue);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    color: var(--navy);
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   4. CONTAINER
+   ========================================================= */
+
+.container {
+    width: min(92%, var(--container-width));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   5. ACCESSIBILITY - SKIP LINK
+   ========================================================= */
+
+.skip-link {
+    position: absolute;
+
+    left: -9999px;
+    top: 12px;
+
+    z-index: 9999;
+
+    padding: 12px 18px;
+
+    background-color: var(--navy-dark);
+    color: var(--white);
+
+    border-radius: var(--radius-small);
+
+    font-weight: 700;
+    text-decoration: none;
+
+    box-shadow: var(--shadow-medium);
+}
+
+.skip-link:focus {
+    left: 15px;
+}
+
+
+/* =========================================================
+   6. HEADER
+   ========================================================= */
+
+.site-header {
+    position: relative;
+
+    padding: 70px 0 65px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy-dark),
+            var(--navy),
+            var(--navy-light)
+        );
+
+    color: var(--white);
+
+    text-align: center;
+
+    border-bottom: 4px solid var(--blue-light);
+}
+
+
+/* Decorative top line */
+
+.site-header::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background-color: var(--blue-light);
+}
+
+
+.site-header h1 {
+    margin: 0 0 12px;
+
+    font-size: clamp(2rem, 5vw, 3.2rem);
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    line-height: 1.2;
+}
+
+
+.site-header p {
+    margin: 0;
+
+    color: #dce7f5;
+
+    font-size: 1.15rem;
+
+    letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   7. NAVIGATION
+   ========================================================= */
+
+.site-navigation {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    background-color: var(--white);
+
+    border-bottom: 1px solid var(--border);
+
+    box-shadow: var(--shadow-small);
+}
+
+
+.site-navigation ul {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    margin: 0;
+
+    padding: 10px 0;
+
+    list-style: none;
+}
+
+
+.site-navigation li {
+    margin: 0;
+}
+
+
+.site-navigation a {
+    display: inline-block;
+
+    position: relative;
+
+    padding: 10px 18px;
+
+    color: var(--navy);
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    border-radius: var(--radius-small);
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.site-navigation a:hover {
+    background-color: #eef3f9;
+
+    color: var(--blue);
+}
+
+
+/* Underline animation */
+
+.site-navigation a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 5px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: var(--blue);
+
+    transform: translateX(-50%);
+
+    transition: width 0.2s ease;
+}
+
+
+.site-navigation a:hover::after,
+.site-navigation a[aria-current="page"]::after {
+    width: 50%;
+}
+
+
+/* Current page */
+
+.site-navigation a[aria-current="page"] {
+    color: var(--blue);
+
+    background-color: #eef3f9;
+
+    font-weight: 700;
+}
+
+
+/* Keyboard focus */
+
+.site-navigation a:focus-visible {
+    outline: 3px solid var(--blue-light);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   8. MAIN CONTENT
+   ========================================================= */
+
+main {
+    min-height: 60vh;
+}
+
+
+/* =========================================================
+   9. HERO SECTION
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    padding: 100px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f2f6fb
+        );
+
+    text-align: center;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.hero h2 {
+    max-width: 850px;
+
+    margin: 0 auto 20px;
+
+    color: var(--navy);
+
+    font-size: clamp(2rem, 5vw, 3rem);
+
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+}
+
+
+.hero p {
+    max-width: 720px;
+
+    margin: 0 auto 30px;
+
+    color: var(--text-medium);
+
+    font-size: 1.1rem;
+}
+
+
+/* =========================================================
+   10. BUTTONS
+   ========================================================= */
+
+.button {
+    display: inline-block;
+
+    padding: 13px 25px;
+
+    background-color: var(--navy);
+
+    color: var(--white);
+
+    border: 2px solid var(--navy);
+
+    border-radius: var(--radius-small);
+
+    font: inherit;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+
+    box-shadow: var(--shadow-small);
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.button:hover {
+    background-color: var(--blue);
+
+    border-color: var(--blue);
+
+    color: var(--white);
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-medium);
+}
+
+
+.button:active {
+    transform: translateY(0);
+}
+
+
+.button:focus-visible {
+    outline: 3px solid var(--blue-light);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   11. CONTENT SECTIONS
+   ========================================================= */
+
+.content-section {
+    padding: 75px 0;
+
+    background-color: var(--white);
+
+    border-bottom: 1px solid var(--border-light);
+}
+
+
+.content-section:nth-of-type(even) {
+    background-color: var(--off-white);
+}
+
+
+.content-section h2 {
+    position: relative;
+
+    margin: 0 0 25px;
+
+    padding-bottom: 14px;
+
+    color: var(--navy);
+
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+
+    line-height: 1.3;
+}
+
+
+/* Professional heading underline */
+
+.content-section h2::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 3px;
+
+    margin-top: 10px;
+
+    background-color: var(--blue);
+
+    border-radius: 2px;
+}
+
+
+.content-section p {
+    max-width: 800px;
+
+    color: var(--text-medium);
+
+    font-size: 1.02rem;
+}
+
+
+/* =========================================================
+   12. SKILLS LIST
+   ========================================================= */
+
+.skills-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: 15px;
+
+    max-width: 900px;
+
+    margin: 25px 0 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.skills-list li {
+    padding: 16px 18px;
+
+    background-color: var(--white);
+
+    color: var(--navy);
+
+    border: 1px solid var(--border);
+
+    border-left: 4px solid var(--blue);
+
+    border-radius: var(--radius-small);
+
+    font-weight: 600;
+
+    box-shadow: var(--shadow-small);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.skills-list li:hover {
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-medium);
+}
+
+
+/* =========================================================
+   13. PROJECT GRID
+   ========================================================= */
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 25px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   14. PROJECT CARDS
+   ========================================================= */
+
+.project-card {
+    position: relative;
+
+    padding: 30px;
+
+    background-color: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-medium);
+
+    box-shadow: var(--shadow-small);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.project-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background-color: var(--blue);
+
+    border-radius:
+        var(--radius-medium)
+        var(--radius-medium)
+        0
+        0;
+}
+
+
+.project-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #bdcadd;
+
+    box-shadow: var(--shadow-large);
+}
+
+
+.project-card h3 {
+    margin: 0 0 15px;
+
+    color: var(--navy);
+
+    font-size: 1.35rem;
+}
+
+
+.project-card p {
+    margin-bottom: 12px;
+
+    color: var(--text-medium);
+
+    font-size: 0.98rem;
+}
+
+
+.project-card p:last-child {
+    margin-bottom: 0;
+
+    color: var(--blue);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   15. CONTACT FORM
+   ========================================================= */
+
+.contact-form {
+    max-width: 760px;
+
+    margin-top: 30px;
+
+    padding: 35px;
+
+    background-color: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-large);
+
+    box-shadow: var(--shadow-medium);
+}
+
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--navy);
+
+    font-weight: 700;
+}
+
+
+.form-group input,
+.form-group textarea {
+    display: block;
+
+    width: 100%;
+
+    padding: 13px 15px;
+
+    background-color: var(--white);
+
+    color: var(--text-dark);
+
+    border: 2px solid #bcc7d6;
+
+    border-radius: var(--radius-small);
+
+    font: inherit;
+
+    line-height: 1.5;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-light);
+}
+
+
+.form-group input:hover,
+.form-group textarea:hover {
+    border-color: var(--blue);
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+
+    border-color: var(--blue);
+
+    box-shadow:
+        0 0 0 3px rgba(45, 107, 179, 0.2);
+}
+
+
+.form-group textarea {
+    min-height: 170px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   16. REQUIRED FORM FIELDS
+   ========================================================= */
+
+.form-group input:required:valid,
+.form-group textarea:required:valid {
+    border-color: #4d6f91;
+}
+
+
+/* =========================================================
+   17. FOOTER
+   ========================================================= */
+
+.site-footer {
+    padding: 35px 0;
+
+    background-color: var(--navy-dark);
+
+    color: #dce7f5;
+
+    text-align: center;
+
+    border-top: 4px solid var(--blue);
+}
+
+
+.site-footer p {
+    margin: 0;
+
+    font-size: 0.95rem;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   18. RESPONSIVE DESIGN - TABLETS
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .site-header {
+        padding: 55px 0;
+    }
+
+    .hero {
+        padding: 75px 0;
+    }
+
+    .content-section {
+        padding: 55px 0;
+    }
+
+    .project-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-form {
+        padding: 28px;
+    }
+}
+
+
+/* =========================================================
+   19. RESPONSIVE DESIGN - MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 15px;
+    }
+
+
+    .container {
+        width: 90%;
+    }
+
+
+    .site-header {
+        padding: 45px 0;
+    }
+
+
+    .site-header h1 {
+        font-size: 2rem;
+
+        letter-spacing: 0.5px;
+    }
+
+
+    .site-header p {
+        font-size: 1rem;
+    }
+
+
+    .site-navigation {
+        position: static;
+    }
+
+
+    .site-navigation ul {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 3px;
+
+        padding: 8px 0;
+    }
+
+
+    .site-navigation a {
+        display: block;
+
+        text-align: center;
+
+        padding: 10px;
+    }
+
+
+    .site-navigation a::after {
+        display: none;
+    }
+
+
+    .hero {
+        padding: 60px 0;
+    }
+
+
+    .hero h2 {
+        font-size: 1.9rem;
+    }
+
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+
+    .content-section {
+        padding: 50px 0;
+    }
+
+
+    .content-section h2 {
+        font-size: 1.75rem;
+    }
+
+
+    .skills-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .project-card {
+        padding: 25px;
+    }
+
+
+    .contact-form {
+        padding: 22px;
+    }
+
+
+    .button {
+        width: 100%;
+
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   20. REDUCED MOTION ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
+/* =========================================================
+   END OF PROFESSIONAL ROYAL NAVY BLUE THEME
+   ========================================================= */
